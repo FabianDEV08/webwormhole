@@ -14,7 +14,7 @@
 <script src="ww.js"></script>
 <script src="main.js"></script>
 <title>WebWormhole</title>
-<body>
+<body class="connected">
     <form id="main" role="main">
         <div id="header">
             <img src="crossclave-logo.png" alt="CrossClave">
@@ -22,20 +22,23 @@
         </div>
         <p id="hint">Recieve a file with end-to-end<br>encrypted magic</p>
         <img id="receive-image" src="receive-file.png" alt="CrossClave">
-        <div id="top">
-            Drag and drop, 
-            <label id="filepicker-wrap" class="button">OPEN
-                <input type="file" id="filepicker" disabled />
-            </label>, or 
-            <input type="button" id="clipboard" class="button" value="PASTE" disabled /> files and text to send.
-        </div>
-        <ul id="transfers"></ul>
+        <ul id="transfers">
+            <!-- <li>
+                <img id="file" alt="File">
+                <div>
+                    <span class="file-text">Some random file</span>
+                    <span>246mb, Word Documet</span>
+                </div>
+                <img src="download_icon.png" alt="download...">
+            </li> -->
+        </ul>
         <div id="prompt">
             <img id="qr" />
             <input type="text" id="magiccode" autocomplete="off" autofocus title="secret phrase" placeholder="Type a secret phrase to start…" />
             <input type="submit" id="dial" class="button" value="Get file" disabled />
-            <span id="autocomplete"></span>
         </div>
+        <span id="status">Connecting...</span>
+        <span id="error">An error has occur, please try again.</span>
     </form>
 </body>
 </html>

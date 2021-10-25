@@ -1,304 +1,333 @@
 :root {
-	--purple: #321d47;
-	--yellow: #ffa400;
-	--yellow-tint: #ffa40012;
-	--grey: #8e8a8a;
-	--grey-tint: #00000054;
-	--grey-light: #aeac9c;
-	--white: white;
-	--black: black;
-	--error: #8a504a;
-	--dialling: #8c782a;
-	--connected: #c1ffab;
-	--highlight: #8464a4;
-	--crossclave-cream-light: #FFF1E4;
-	--crossclave-border-gray: #141923;
-	--crossclave-button-background: #EF6C56;
-	--crossclave-text-gray: #273143;
+  --purple: #321d47;
+  --yellow: #ffa400;
+  --yellow-tint: #ffa40012;
+  --grey: #8e8a8a;
+  --grey-tint: #00000054;
+  --grey-light: #aeac9c;
+  --white: white;
+  --black: black;
+  --error: #8a504a;
+  --dialling: #8c782a;
+  --connected: #c1ffab;
+  --highlight: #8464a4;
+  --crossclave-cream-light: #fff1e4;
+  --crossclave-border-gray: #141923;
+  --crossclave-button-background: #ef6c56;
+  --crossclave-text-gray: #273143;
+  --crossclave-text-light-gray: #5D6575;
 
-	/* Palette of background colours chosen by the session key. */
-	--palette-0: #c1ffab; /* bright green */
-	--palette-1: #c3c0a7; /* brown */
-	--palette-2: #b7ae5e; /* gold */
-	--palette-3: #6cc3c5; /* teal */
-	--palette-4: #cccccc; /* grey */
-	--palette-5: #88b6fb; /* blue */
-	--palette-6: #cdff33; /* lime */
-	--palette-7: #e796ea; /* purple */
+  /* Palette of background colours chosen by the session key. */
+  --palette-0: #c1ffab; /* bright green */
+  --palette-1: #c3c0a7; /* brown */
+  --palette-2: #b7ae5e; /* gold */
+  --palette-3: #6cc3c5; /* teal */
+  --palette-4: #cccccc; /* grey */
+  --palette-5: #88b6fb; /* blue */
+  --palette-6: #cdff33; /* lime */
+  --palette-7: #e796ea; /* purple */
 }
 
 @font-face {
-	font-family: "Graphik";
-	src: url(GraphikRegular.otf);
+  font-family: "Graphik";
+  src: url(GraphikRegular.otf);
 }
 
 html {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-	align-items: center;
-	background-color: var(--crossclave-cream-light);
-	display: flex;
-	flex-direction: column;
-	font-size: 18px;
-	justify-content: center;
-	height: 100vh;
-	margin: 0;
-	padding: 0;
-}
-
-body.disconnected,
-body.error {
-	background-color: var(--error);
-}
-
-body.dialling {
-	background-color: var(--dialling);
-}
-
-body.connected {
-	background-color: var(--connected);
+  align-items: center;
+  background-color: var(--crossclave-cream-light);
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  justify-content: flex-start;
+  margin: 0;
+  padding: 0;
 }
 
 #main {
-	display: flex;
-	align-items: center;
-	flex-flow: column;
-	justify-content: flex-start;
-	padding: 1em 0;
-	overflow: auto;
-	text-align: center;
-	background: var(--crossclave-cream-light);
-	box-sizing: border-box;
-}
-
-.connected #main {
-	justify-content: space-between;
-	transition: all 1s;
-}
-
-.highlight #main {
-	background-color: var(--highlight);
-	border: 4px dashed var(--white);
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  justify-content: flex-start;
+  padding: 1em 0;
+  overflow: auto;
+  text-align: center;
+  background: var(--crossclave-cream-light);
+  box-sizing: border-box;
 }
 
 #prompt {
-	display: flex;
-	align-items: center;
-	flex-flow: column;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
 }
 
 .connected #prompt p,
 .dialling #prompt p {
-	display: none;
+  display: none;
 }
 
 #header {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	align-self: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: center;
 }
 
 #spideroak {
-	font-family: "Graphik";
-	margin: 16px 8px;
-	font-size: 22px;
-	padding: 8px 0;
-	text-align: center;
-	color: black;
-	font-weight: bold;
+  font-family: "Graphik";
+  margin: 16px 8px;
+  font-size: 22px;
+  padding: 8px 0;
+  text-align: center;
+  color: black;
+  font-weight: bold;
 }
 
 #hint {
-	font-family: "Graphik";
-	margin: 32px 8px;
-	font-size: 19px;
-	text-align: center;
-	color: black;
+  font-family: "Graphik";
+  margin: 32px 8px;
+  font-size: 19px;
+  text-align: center;
+  color: black;
 }
 
-#top {
-	display: none;
-}
-
-.connected #top {
-	display: unset;
-}
-
-#filepicker {
-	display: none;
-}
-
-#filepicker-wrap {
-	display: inline-block;
-}
+/* LIST STYLES */
 
 #transfers {
-	display: none;
-	list-style-type: none;
-	padding-left: 0;
-	margin: 0;
-	width: 80%;
-	max-width: 400px;
+  display: none;
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 10px;
+  width: 80%;
+  max-width: 400px;
 }
 
 .connected #transfers,
 .dialling #transfers {
-	display: unset;
+  display: unset;
+}
+
+#transfers div {
+  display: flex;
+  flex-direction: column;
+  align-self: auto;
+  flex: 1;
 }
 
 #transfers li {
-	border-color: var(--grey);
-	border-style: solid;
-	border-width: 1px;
-	border-radius: 4px;
-	background-color: var(--grey-tint);
-	margin: 5px;
-	padding: 8px;
-	box-shadow: 0px 0px 4px 0px var(--grey-tint);
+  display: flex;
+  flex-direction: row;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--white);
+  margin: 5px;
+  padding: 8px;
+  box-shadow: -4px 2px 0px #000000;
+}
+
+#transfers img {
+  height: 20px;
+  width: 20px;
+  align-self: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+#transfers span {
+  font-family: "Graphik", Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  text-align: start;
+  margin-top: 8px;
+  color: var(--crossclave-text-light-gray);
+}
+
+#transfers span.file-text {
+  font-size: 15px;
+  color: var(--crossclave-text-gray);
 }
 
 #transfers li.upload {
-	list-style-type: "↑ ";
+  list-style-type: "↑ ";
 }
 
 #transfers li.download {
-	list-style-type: "↓ ";
+  list-style-type: "↓ ";
 }
 
 #transfers li.pending {
-	list-style-type: "... ";
+  list-style-type: "... ";
 }
 
+#file {
+  width: 38px;
+  height: 32px;
+  margin-left: 8px;
+  margin-right: 2px;
+}
+
+/* END LIST STYLES */
+
 #qr {
-	margin: 4px;
-	border: 2px solid;
-	width: 256px;
-	height: 256px;
-	display: none;
+  margin: 4px;
+  border: 2px solid;
+  width: 256px;
+  height: 256px;
+  display: none;
 }
 
 .dialling #qr[src] {
-	display: unset;
+  display: unset;
 }
 
 #magiccode {
-	color: var(--crossclave-button-background);
-	background: var(--crossclave-cream-light);
-	border: 1px solid var(--crossclave-border-gray);
-	border-radius: 4px;
-	font-family: "Graphik";
-	height: 32px;
-	width: 300px;
-	padding: 16px;
-	margin-top: 20px;
-	margin-left: 32px;
-	margin-right: 32px;
-	font-size: 16px;
-	line-height: 24px;
-	text-align: center;
-	text-transform: uppercase;
+  color: var(--crossclave-button-background);
+  background: var(--crossclave-cream-light);
+  border: 1px solid var(--crossclave-border-gray);
+  border-radius: 4px;
+  font-family: "Graphik", Arial, Helvetica, sans-serif;
+  height: 32px;
+  width: 300px;
+  padding: 16px;
+  margin-top: 20px;
+  margin-left: 32px;
+  margin-right: 32px;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
-::placeholder { /* Recent browsers */
-	color: var(--crossclave-text-gray);
-	font-size: 15px;
-    text-transform: none;
+::placeholder {
+  /* Recent browsers */
+  color: var(--crossclave-text-gray);
+  font-size: 15px;
+  text-transform: none;
 }
 
 .connected #magiccode {
-	opacity: 0.2;
+  opacity: 0.2;
 }
 
+.dialling #magiccode,
 .error #magiccode {
-	display: none;
+  display: none;
 }
 
 #dial {
-	margin-top: 12px;
-	width: 140px;
+  margin-top: 12px;
+  width: 140px;
 }
 
 .connected #dial,
+.dialling #dial,
 .error #dial {
-	display: none;
+  display: none;
 }
 
-#autocomplete {
-	height: 1em;
-	opacity: 0.5;
+.connected #magiccode,
+.error #magiccode {
+  display: none;
 }
 
-.connected #autocomplete,
-.dialling #autocomplete {
-	display: none;
+#status {
+  color: var(--crossclave-border-gray);
+  align-self: center;
+  text-align: center;
+  font-size: 19px;
+  font-family: "Graphik", Arial, Helvetica, sans-serif;
+  line-height: 20px;
+  margin-top: 40px;
+}
+
+.disconnected #status,
+.connected #status,
+.error #status {
+  display: none;
+}
+
+#error {
+  color: var(--crossclave-border-gray);
+  align-self: center;
+  text-align: center;
+  font-size: 19px;
+  font-family: "Graphik", Arial, Helvetica, sans-serif;
+  line-height: 20px;
+  margin-top: 40px;
+}
+
+.disconnected #error,
+.connected #error,
+.dialling #error {
+  display: none;
 }
 
 .button {
-	-webkit-appearance: none;
-	appearance: none;
-	background: var(--crossclave-button-background);
-	border-radius: 16px;
-	color: var(--white);
-	font-size: 18px;
-	text-transform: none;
-	height: 48px;
-	font-family: Arial, Helvetica, sans-serif;
-	cursor: pointer;
-	margin: 12px 0px;
-	transition: all 0.2s ease 0s;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--crossclave-button-background);
+  border-radius: 16px;
+  color: var(--white);
+  font-size: 18px;
+  text-transform: none;
+  height: 48px;
+  font-family: "Graphik", Arial, Helvetica, sans-serif;
+  cursor: pointer;
+  margin: 12px 0px;
+  transition: all 0.2s ease 0s;
 }
 
 .button:hover {
-	box-shadow: 0px 0px 5px 0px var(--crossclave-button-background);
-	opacity: 0.75;
+  box-shadow: 0px 0px 5px 0px var(--crossclave-button-background);
+  opacity: 0.75;
 }
 
 .button:disabled,
 .button:disabled:hover {
-	background: var(--crossclave-button-background);
-	box-shadow: 0px 0px 5px 0px var(--crossclave-button-background);
-	opacity: 0.3;
-	cursor: unset;
-	letter-spacing: unset;
-	transition: all 0.2s ease 0s;
+  background: var(--crossclave-button-background);
+  box-shadow: 0px 0px 5px 0px var(--crossclave-button-background);
+  opacity: 0.3;
+  cursor: unset;
+  letter-spacing: unset;
+  transition: all 0.2s ease 0s;
 }
 
 a {
-	text-decoration: none;
-	color: var(--yellow);
+  text-decoration: none;
+  color: var(--yellow);
 }
 
 a:link,
 a:visited {
-	border-bottom: 1px dotted;
+  border-bottom: 1px dotted;
 }
 
 a:link:hover,
 a:visited:hover {
-	border-bottom: 1px solid;
+  border-bottom: 1px solid;
 }
 
-
 #main {
-	height: min-content;
-	min-height: 200px;
-	width: 100%;
+  height: min-content;
+  min-height: 200px;
+  width: 100%;
 }
 
 @media only screen and (min-width: 700px) {
-	#main {
-		width: min-content;
-		min-width: 400px;
-		height: 100%;
-	}
+  #main {
+    width: min-content;
+    min-width: 400px;
+    height: 100%;
+  }
 }
 
 #receive-image {
-	height: 195px;
-	width: 250px;
+  height: 195px;
+  width: 250px;
 }

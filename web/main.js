@@ -124,6 +124,31 @@ class Upload {
         }
     }
 }
+
+function insertListItem(title, data) {
+    if (transfersList === null || transfersList === undefined) {
+        console.error("TRANSFER LIST", "was not initialized");
+        return;
+    }
+    const li = document.createElement("li");
+    const fileImg = document.createElement("img");
+    const div = document.createElement("div");
+    const fileTitle = document.createElement("span");
+    const fileData = document.createElement("span");
+    const downloadImg = document.createElement("img");
+    fileImg.alt = "File";
+    li.appendChild(fileImg);
+    downloadImg.alt = "Download";
+    downloadImg.src = "download_icon.png";
+    fileTitle.textContent = title;
+    fileData.textContent = data;
+    fileTitle.classList.add("file-text");
+    div.appendChild(fileTitle);
+    div.appendChild(fileData);
+    li.appendChild(div);
+    li.appendChild(downloadImg);
+    transfersList.appendChild(li);
+}
 class ServiceWorkerDownload {
     constructor(sw, header) {
         this.offset = 0;
@@ -708,7 +733,7 @@ async function init() {
         wasmURL = chrome.runtime.getURL("webwormhole.wasm");
     }
     // Wait for the ServiceWorker, WebAssembly, and DOM to be ready.
-    await Promise.all([domready(), swready(), wasmready(wasmURL)]);
+    await Promise.all([domready()/*, swready(), wasmready(wasmURL)*/]);
     // Wireup HTML.
     filepicker = document.getElementById("filepicker");
     dialButton = document.getElementById("dial");
@@ -719,6 +744,8 @@ async function init() {
     transfersList = document.getElementById("transfers");
     infoBox = document.getElementById("info");
     autocompleteBox = document.getElementById("autocomplete");
+    //UI test to check the list item for download
+    insertListItem("Test", "test data");
     // Friendly error message and bail out if things are clearely not going to work.
     if (hacks.browserunsupported) {
         infoBox.innerText =
@@ -733,8 +760,8 @@ async function init() {
     phraseInput.addEventListener("input", codechange);
     phraseInput.addEventListener("keydown", autocomplete);
     phraseInput.addEventListener("input", autocompletehint);
-    filepicker.addEventListener("change", pick);
-    clipboardInput.addEventListener("click", pasteClipboard);
+    // filepicker.addEventListener("change", pick);
+    // clipboardInput.addEventListener("click", pasteClipboard);
     mainForm.addEventListener("submit", preventdefault);
     mainForm.addEventListener("submit", connect);
     qrImg.addEventListener("dblclick", copyurl);
