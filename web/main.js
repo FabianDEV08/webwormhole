@@ -577,12 +577,12 @@ function hashchange() {
     }
 }
 function codechange() {
-    if (phraseInput.value === "") {
-        dialButton.value = "CREATE WORMHOLE";
-    }
-    else {
-        dialButton.value = "JOIN WORMHOLE";
-    }
+    // if (phraseInput.value === "") {
+    //     dialButton.value = "CREATE WORMHOLE";
+    // }
+    // else {
+    //     dialButton.value = "JOIN WORMHOLE";
+    // }
 }
 function autocompletehint() {
     const words = phraseInput.value.split("-");
