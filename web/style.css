@@ -15,7 +15,7 @@
   --crossclave-border-gray: #141923;
   --crossclave-button-background: #ef6c56;
   --crossclave-text-gray: #273143;
-  --crossclave-text-light-gray: #5D6575;
+  --crossclave-text-light-gray: #5d6575;
 
   /* Palette of background colours chosen by the session key. */
   --palette-0: #c1ffab; /* bright green */
@@ -115,6 +115,7 @@ body {
 }
 
 #transfers div {
+	margin-left: 8px;
   display: flex;
   flex-direction: column;
   align-self: auto;
@@ -151,6 +152,11 @@ body {
 #transfers span.file-text {
   font-size: 15px;
   color: var(--crossclave-text-gray);
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 #transfers li.upload {
@@ -165,11 +171,16 @@ body {
   list-style-type: "... ";
 }
 
-#file {
+#transfers img.file {
+  height: 38px;
   width: 38px;
-  height: 32px;
-  margin-left: 8px;
-  margin-right: 2px;
+  align-self: center;
+  align-items: center;
+  padding: 8px;
+  margin: 8px;
+  border: 0.5px solid #c9cbd0;
+  box-sizing: border-box;
+  border-radius: 2px;
 }
 
 /* END LIST STYLES */

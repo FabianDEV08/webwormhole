@@ -125,6 +125,10 @@ class Upload {
     }
 }
 
+function download(){
+    console.log("DOWNLOADING");
+}
+
 function insertListItem(title, data) {
     if (transfersList === null || transfersList === undefined) {
         console.error("TRANSFER LIST", "was not initialized");
@@ -137,6 +141,8 @@ function insertListItem(title, data) {
     const fileData = document.createElement("span");
     const downloadImg = document.createElement("img");
     fileImg.alt = "File";
+    fileImg.classList.add("file");
+    fileImg.src = "word_icon.png";
     li.appendChild(fileImg);
     downloadImg.alt = "Download";
     downloadImg.src = "download_icon.png";
@@ -148,6 +154,8 @@ function insertListItem(title, data) {
     li.appendChild(div);
     li.appendChild(downloadImg);
     transfersList.appendChild(li);
+
+    downloadImg.addEventListener("click", download);
 }
 class ServiceWorkerDownload {
     constructor(sw, header) {
